@@ -33,10 +33,11 @@ app.post('/calculation', (req, res) => {
 
 app.get('/calculation', (req, res) => {
     console.log('got to /calculation');
-
+    console.log(objectArray);
+    
     //respond
     //whatever is in send becomes response on the client side
-    res.send(objectArray.solution);
+    res.send(objectArray);
     //only able to send 1 response
 })
 

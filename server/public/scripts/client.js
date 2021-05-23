@@ -31,7 +31,7 @@ function sendData(){
     //push it into object array on the server
     //MAKE POST REQUEST with object
     $.ajax({  //next is server line 41
-        url: '/object',
+        url: '/calculation',
         method: 'POST',
         data: object //becomes req.body on the server
     })
@@ -61,7 +61,7 @@ function getCalculation() {
         //append equation to DOM
         for (let math of response) {
             $('#equations').append(`
-            <li>${math.numOne} ${math.operator} ${math.numTwo} = ${math.solution}</li>
+            <li>${math.numOne} ${math.modifier} ${math.numTwo} = ${math.solution}</li>
             `)
         }
     })
