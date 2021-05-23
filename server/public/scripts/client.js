@@ -6,6 +6,7 @@ function handleReady() {
     console.log('jquery loaded!');
 
     //click listeners 
+    $('#plus').on('click', )
     $('#equals').on('click', sendData);
 
     //getCalculation();
@@ -15,16 +16,14 @@ function sendData(){
     //gather input values
     let object = {
         numOne: $('#firstInput').val(),
+        operator: $('#plus').val(),
         numTwo: $('#secondInput').val(),
-        operator: $('.operator').val(),
+        
     }
-
     console.log(object);
     
-    //add to array
-    //push it into addNumber array on the server
+    //push it into object array on the server
     //MAKE POST REQUEST with object
-
     $.ajax({  //next is server line 41
         url: '/object',
         method: 'POST',
@@ -33,7 +32,7 @@ function sendData(){
     .then(function(response){
         console.log(response)
 
-    .catch(function (error){
+    }).catch(function (error){
         console.log('error');
         alert('something went wrong, with POST');
     })
@@ -41,9 +40,8 @@ function sendData(){
     //getCalculation(); 
 }
 
-
 // function getCalculation() { // next is server
-//     // go to server route /calculations
+//     // go to server route /calculation
 //     $.ajax({
 //         method: 'GET', //making a GET request
 //         url: '/calculation'
@@ -57,7 +55,7 @@ function sendData(){
 //         //append equation to DOM
 //         for (let math of response) {
 //             $('#equations').append(`
-//             <li>${math.text} = ${math.author}</li>
+//             <li>${math.numOne} ${math.operator} ${math.numTwo}</li>
 //             `)
 //         }
 //     })

@@ -46,8 +46,9 @@ app.listen(PORT, () => {
 
 
 
-// function calculation() {
+// function calculation(objectArray) {
+    // let 
 //     for(let i=0; i<objectArray; i++)
-        
+        //  if(numOne )
 
 // }
