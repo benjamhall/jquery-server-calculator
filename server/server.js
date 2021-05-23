@@ -12,23 +12,42 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 //math calculation function
 
-let numbersArray = []
+let objectArray = []
 
 //POST IS FOR ADDING NEW DATA 
+
+app.post('/object', (req, res) => {
+    //add incoming object to numbersArray
+    console.log(req.body);
+    objectArray.push(req.body);
+
+    //send back response OK 
+    res.sendStatus(200);
+    
+});
 
 
 //GET IS FOR GETTING EXISTING DATA
 
-app.get('/calculation', (req, res) => {
-    console.log('got to /calculation');
+// app.get('/calculation', (req, res) => {
+//     console.log('got to /calculation');
 
-    //respond
-    //whatever is in send becomes response on the client side
-    res.send(calculation);
-    //only able to send 1 response
-})
+//     //respond
+//     //whatever is in send becomes response on the client side
+//     res.send(calculation);
+//     //only able to send 1 response
+// })
+
 
 // start listening for connections
 app.listen(PORT, () => {
     console.log('RUNNING ON PORT:', PORT)
 });
+
+
+
+// function calculation() {
+//     for(let i=0; i<objectArray; i++)
+        
+
+// }
