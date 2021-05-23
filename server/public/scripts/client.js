@@ -11,6 +11,7 @@ function handleReady() {
     $('#multiply').on('click', multiplication)
     $('#divide').on('click', division)
     $('#equals').on('click', sendData);
+    $('#clear').on('click', clearData)
 
     //getCalculation();
 }
@@ -66,6 +67,14 @@ function getCalculation() {
     })
 
 }
+
+function clearData() {
+    //clear input
+    $('#firstInput').val('')
+    $('#secondInput').val('')
+    let operator = ''
+}
+
 
 function addition() {
     operator = "+";

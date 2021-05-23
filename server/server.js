@@ -25,7 +25,6 @@ app.post('/calculation', (req, res) => {
 
     //send back response OK 
     res.sendStatus(200);
-    
 
 });
 
@@ -37,7 +36,7 @@ app.get('/calculation', (req, res) => {
 
     //respond
     //whatever is in send becomes response on the client side
-    res.send(calculation);
+    res.send(objectArray.solution);
     //only able to send 1 response
 })
 
@@ -54,7 +53,13 @@ function calculation(objectArray) {
         objectArray.solution = parseFloat(objectArray.numOne + objectArray.numTwo)
     }
     else if (objectArray.modifier = "-"){
-
+        objectArray.solution = parseFloat(objectArray.numOne - objectArray.numTwo)
+    }
+    else if (objectArray.modifier = "*"){
+        objectArray.solution = parseFloat(objectArray.numOne * objectArray.numTwo)
+    }
+    else if (objectArray.modifier = "/"){
+        objectArray.solution = parseFloat(objectArray.numOne / objectArray.numTwo)
     }
 
 }
