@@ -6,19 +6,24 @@ function handleReady() {
     console.log('jquery loaded!');
 
     //click listeners 
-    $('#plus').on('click', )
+    $('#plus').on('click', addition)
+    $('#minus').on('click', subtraction)
+    $('#multiply').on('click', multiplication)
+    $('#divide').on('click', division)
     $('#equals').on('click', sendData);
 
     //getCalculation();
 }
 
+let operator = ""
+
+
 function sendData(){
     //gather input values
     let object = {
         numOne: $('#firstInput').val(),
-        operator: $('#plus').val(),
+        modifier: operator,
         numTwo: $('#secondInput').val(),
-        
     }
     console.log(object);
     
@@ -37,27 +42,43 @@ function sendData(){
         alert('something went wrong, with POST');
     })
     //get new post
-    //getCalculation(); 
+    getCalculation(); 
 }
 
-// function getCalculation() { // next is server
-//     // go to server route /calculation
-//     $.ajax({
-//         method: 'GET', //making a GET request
-//         url: '/calculation'
-//     }).then(response => {
-//         //response is what was in the res.send()
-//         console.log(response);
+function getCalculation() { 
+    // go to server route /calculation
+    $.ajax({
+        method: 'GET', //making a GET request
+        url: '/calculation'
+    }).then(response => {
+        //response is what was in the res.send()
+        console.log(response);
 
-//         //empty DOM
-//         $('#equations').empty();
+        //empty DOM
+        $('#equations').empty();
 
-//         //append equation to DOM
-//         for (let math of response) {
-//             $('#equations').append(`
-//             <li>${math.numOne} ${math.operator} ${math.numTwo}</li>
-//             `)
-//         }
-//     })
+        //append equation to DOM
+        for (let math of response) {
+            $('#equations').append(`
+            <li>${math.numOne} ${math.operator} ${math.numTwo} = ${math.solution}</li>
+            `)
+        }
+    })
 
-// }
+}
+
+function addition() {
+    operator = "+";
+}
+
+function subtraction() {
+    operator = "-";
+}
+
+function multiplication() {
+    operator = "*";
+}
+
+function division() {
+    operator = "/";
+}
