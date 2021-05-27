@@ -7,6 +7,7 @@ const app = express();
 const PORT = 5000;
 
 // WHEN I GO TO localhost:5000...
+// Serve static files 
 app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -50,16 +51,16 @@ app.listen(PORT, () => {
 
 
 function calculation(objectArray) {
-    if (objectArray.modifier = "+") {
-        objectArray.solution = parseFloat(objectArray.numOne + objectArray.numTwo)
+    if (objectArray.modifier == "+") {
+        objectArray.solution = parseFloat(objectArray.numOne) + parseFloat(objectArray.numTwo)
     }
-    else if (objectArray.modifier = "-"){
-        objectArray.solution = parseFloat(objectArray.numOne - objectArray.numTwo)
+    else if (objectArray.modifier == "-"){
+        objectArray.solution = parseFloat(objectArray.numOne) - parseFloat(objectArray.numTwo)
     }
-    else if (objectArray.modifier = "*"){
-        objectArray.solution = parseFloat(objectArray.numOne * objectArray.numTwo)
+    else if (objectArray.modifier == "*"){
+        objectArray.solution = parseFloat(objectArray.numOne) * parseFloat(objectArray.numTwo)
     }
-    else if (objectArray.modifier = "/"){
+    else if (objectArray.modifier == "/"){
         objectArray.solution = parseFloat(objectArray.numOne / objectArray.numTwo)
     }
 
