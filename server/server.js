@@ -61,7 +61,7 @@ function calculation(objectArray) {
         objectArray.solution = parseFloat(objectArray.numOne) * parseFloat(objectArray.numTwo)
     }
     else if (objectArray.modifier == "/"){
-        objectArray.solution = parseFloat(objectArray.numOne / objectArray.numTwo)
+        objectArray.solution = parseFloat(objectArray.numOne) / parseFloat(objectArray.numTwo)
     }
 
 }
